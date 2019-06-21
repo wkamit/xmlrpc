@@ -1,0 +1,206 @@
+
+import xmlrpclib
+
+SERVER=''
+DATABASE= ''
+USERNAME=''
+PASSWORD=''
+server=xmlrpclib.ServerProxy(SERVER+'/xmlrpc/common')
+user_id=server.login(DATABASE,USERNAME,PASSWORD)
+server=xmlrpclib.ServerProxy(SERVER+'/xmlrpc/object')
+
+
+
+# SERVER1=''
+# DATABASE1=''
+# USERNAME1=''
+# PASSWORD1=''
+
+# server1=xmlrpclib.ServerProxy(SERVER1+'/xmlrpc/common')
+# user_id1=server1.login(DATABASE1,USERNAME1,PASSWORD1)
+# server1=xmlrpclib.ServerProxy(SERVER1+'/xmlrpc/object')
+
+
+print user_id
+trending = server.execute(DATABASE, user_id, PASSWORD, 'pos.cache.database','write',[4763607],{'write_date':'2019-06-13 15:48:40'})
+trending = server.execute(DATABASE, user_id, PASSWORD, 'pos.cache.database','read',[4763607],['__last_update','write_date','updated_date'])
+print trending
+# print user_id1
+# search_operation = server.execute(DATABASE, user_id, PASSWORD,'product.template', 'search',[('available_in_pos','=',True),('pos_categ_id','!=',False)])
+# search_operation1 = server1.execute(DATABASE1, user_id1, PASSWORD1,'product.template', 'search',[('available_in_pos','=',True),('pos_categ_id','!=',False)])
+# all_ids = server1.execute(DATABASE1, user_id1, PASSWORD1,'product.template', 'search',[('available_in_pos','=',True)])
+# print len(search_operation)
+# print len(search_operation1)
+# i = 0
+# for temp_id in search_operation:
+#     if temp_id not in (search_operation1) and temp_id in all_ids:
+#     print temp_id
+#     i= i+ 1
+#         read_data = server.execute(DATABASE, user_id, PASSWORD,'product.template', 'read',temp_id,['pos_categ_id'])
+#         # id_exist = server.execute(DATABASE, user_id, PASSWORD,'product.template', 'search',temp_id,['pos_categ_id'])
+        
+#         result = server1.execute(DATABASE1, user_id1, PASSWORD1,'product.template', 'write',temp_id,{'pos_categ_id':[(6,0,read_data.get('pos_categ_id'))]})
+#         print result
+#         print temp_id
+#     if i>10:
+#         break
+# search_operation = server.execute(DATABASE, user_id, PASSWORD,'product.product', 'write',20668,{'active':1,'sale_ok':1,'available_in_pos':1,'enabled_web':1,'purchase_ok':1})
+# trending = server.execute(DATABASE, user_id, PASSWORD, 'pos.order.line','read',83,[])
+# trending = server.execute(DATABASE, user_id, PASSWORD, 'res.partner','search',[('wkallow_managing_customer_credits', '=','')])
+# trending1 = server.execute(DATABASE, user_id, PASSWORD, 'stock.pack.operation','search',[('wk_partner_id','=',False)])
+# print len(trending1)
+# print trending1[0]
+# print trending1
+# trending = server.execute(DATABASE, user_id, PASSWORD, 'wk.price.operation','write',trending,{'state':'NEW'})
+
+# search_operation = server.execute(DATABASE, user_id, PASSWORD,'ir.actions.server', 'search',[])
+# read_operation = server.execute(DATABASE, user_id, PASSWORD,'product.product', 'create',{'module_pos_multi_pricelist':0})
+# search_operation = server.execute(DATABASE, user_id, PASSWORD,'res.config.settings', 'execute',[read_operation])
+# domain = [('applied_on','=', '3_global'), ('pricelist_id', '=', 1)]
+# read_operation = server.execute(DATABASE, user_id, PASSWORD,'pos.session','write',40,{'state':'closing_control'})
+# read_operation = server.execute(DATABASE, user_id, PASSWORD,'product.pricelist.item', 'read', [1182])
+# print trending
+# print trending1
+
+# search_operation = server.execute(DATABASE, user_id, PASSWORD,'pos.quote', 'search',[])
+# print search_operation
+
+# read_operation = server.execute(DATABASE, user_id, PASSWORD,'res.partner', 'read',8,[])
+
+
+# a = server.execute(DATABASE, user_id, PASSWORD,'res.partner', 'read',8,[])
+# print a
+# user_ids = server.execute(DATABASE, user_id, PASSWORD,'pos.order', 'search',[('email_sent','=',True)])
+# print a
+
+# print server.execute(DATABASE,user_id,PASSWORD,'pos.quote','write',10,{'state':'done'})
+# print server.execute(DATABASE,user_id,PASSWORD,'book.cab','read',4)
+# print server.execute(DATABASE,user_id,PASSWORD,'sale.order','write',77,{'partner_id':7,})
+# print server.execute(DATABASE,user_id,PASSWORD,'sale.order','read',49,['partner_id','partner_shipping_id'])
+# server.execute(DATABASE,user_id,PASSWORD,'sale.order','onchange_partner_id',[77])
+
+
+
+
+
+# print server.execute(DATABASE,user_id,PASSWORD,'route.config','read',2,[])
+# print  server.execute(DATABASE,user_id,PASSWORD,'route.config','read',1,[])
+# print server.execute(DATABASE,user_id,PASSWORD,'via.location','read',8,[])
+# print server.execute(DATABASE,user_id,PASSWORD,'time.route','read',17,['time_slot'])
+# print server.execute(DATABASE,user_id,PASSWORD,'time.slot','read',3,[])
+
+
+# print user_ids
+#.....................................................search complete
+
+
+#read=server.execute(DATABASE,user_id,PASSWORD,'student.student','read',84,['name'])
+
+#print read
+
+
+#.....................................................read complete
+
+
+
+#id=server.execute(DATABASE,user_id,PASSWORD,'student.student','create',{'name':"check1 one2many",'email_id':'abc1@gmail.com'})
+#print id
+# id=server.execute(DATABASE,user_id,PASSWORD,'student.student','search',[('name','=','check1 one2many')])
+# print id
+# ids=server.execute(DATABASE,user_id,PASSWORD,'student.student','read',id,['skills'])
+
+# print ids
+# print ids[0]['skills']
+# print ids[0]['id']
+#print server.execute(DATABASE,user_id,PASSWORD,'student.skills','read',23,[])
+#print server.execute(DATABASE,user_id,PASSWORD,'student.student','search_read',[('name','=','hello1')],[])
+#print server.execute(DATABASE,user_id,PASSWORD,'student.student','search_count',[])
+#server.execute(DATABASE,user_id,PASSWORD,'student.student','write',420,{'student_ids':[(0,0,{'student_id':'420','name':'amit'})]})
+#print server.execute(DATABASE,user_id,PASSWORD,'student.student','read',420,['student_ids'])
+#server.execute(DATABASE,user_id,PASSWORD,'student.student','write',420,{'student_ids':[(2,88)]})
+# a=server.execute(DATABASE,user_id,PASSWORD,'student.student','write',420,{'skills':[(0,0,{'name':'xmlrpc'})]})
+
+
+#print server.execute(DATABASE,user_id,PASSWORD,'student.student','read',420,{'skills':(0,0,{'skill_id':'1'})})
+#print server.execute(DATABASE,user_id,PASSWORD,'student.student','read',id1,[])
+
+
+#d=server.execute(DATABASE,user_id,PASSWORD,'student.student','write',[84],{'name':"sumit"})
+#print server.execute(DATABASE,user_id,PASSWORD,'student.student','read',84,['name'])
+#write=server.execute(DATABASE,user_id,PASSWORD,'student.student','write',)
+#id= models.execute_kw(db, uid, password, 'res.partner', 'create', [{
+#'name':"New Partner",
+#}])
+
+#.....................................................read complete
+#ids=server.execute(DATABASE,user_id,PASSWORD,'student.student','search',[['state','=','pending']])
+#print ids
+#for value in ids:
+#   data=server.execute(DATABASE,user_id,PASSWORD,'student.student','write',[value],{'state':"draft"})
+#ids=server.execute(DATABASE,user_id,PASSWORD,'student.student','search',[['name','=','check1 one2many']])
+
+#server.execute(DATABASE,user_id,PASSWORD,'student.student','write',ids,{'gender':"female"})
+#ids=server.execute(DATABASE,user_id,PASSWORD,'sale.order','search',[['partner_id','=','Delta PC']])
+#print ids
+#print server.execute(DATABASE,user_id,PASSWORD,'sale.order','read',3,[])
+
+# print server.execute(DATABASE,user_id,PASSWORD,'sale.order','read',4,['partner_id'])
+# print server.execute(DATABASE,user_id,PASSWORD,'res.partner','search',[])
+# print server.execute(DATABASE,user_id,PASSWORD,'sale.order','read',46,['partner_id'])
+# print server.execute(DATABASE,user_id,PASSWORD,'sale.order','read',1,['partner_id'])
+# server.execute(DATABASE,user_id,PASSWORD,'sale.order','write',48,{'partner_id':54})
+
+
+
+
+#id=server.execute(DATABASE,user_id,PASSWORD,'student.student','search',[['name','=','hell02']])
+#print id
+#a=server.execute(DATABASE,user_id,PASSWORD,'student.student','read',id,['student_ids'])
+#print server.execute(DATABASE,user_id,PASSWORD,'student.student',)
+#server.execute(DATABASE,user_id,PASSWORD,'student.student','create',{'name':'hello3','email':'hello123','':[0,0,{'name':'ravi'}]})
+#print a
+#a=a[0]
+#a=a['student_ids']
+
+#a=server.execute(DATABASE,user_id,PASSWORD,'student.student','read',id.student_ids,[])
+#data=server.execute(DATABASE,user_id,PASSWORD,'student.student','unlink',)
+#print data
+#data=server.execute(DATABASE,user_id,PASSWORD,'student.student','unlink',269)
+#print data
+#id=server.execute(DATABASE,user_id,PASSWORD,'product.template','create',{'name':'coffee','type':'product'})
+#print id
+# print server.execute(DATABASE,user_id,PASSWORD,'product.template','read',111,[])
+# id=server.execute(DATABASE,user_id,PASSWORD,'stock.change.product.qty','search',[])
+# print id
+# print server.execute(DATABASE,user_id,PASSWORD,'product.template','write',111,{'virtual_available': 250.0,'qty_available':250,'product_id':11})
+
+# print server.execute(DATABASE,user_id,PASSWORD,'stock.change.product.qty','read',10,[])
+# print server.execute(DATABASE,user_id,PASSWORD,'stock.change.product.qty','read',11,[])
+# server.execute(DATABASE,user_id,PASSWORD,'stock.change.product.qty','write',10,{'new_quantity': 170.0})
+#print server.execute(DATABASE,user_id,PASSWORD,'stock.change.product.qty','read',10,[])
+# id=server.execute(DATABASE,user_id,PASSWORD,'product.template','search',[['name','=','samsung']])
+# print id
+# print server.execute(DATABASE,user_id,PASSWORD,'product.template','read',115)
+# print server.execute(DATABASE,user_id,PASSWORD,'stock.change.product.qty','search',[])
+#id=server.execute(DATABASE,user_id,PASSWORD,'stock.change.product.qty','create',{'product_id':131,'location_id':12,'new_quantity':112,'product_temp_id':115})
+# print id
+#print se
+# # print server.execute(DATABASE,user_id,PASSWORD,'stock.change.product.qty','search',[])
+# # print server.execute(DATABASE,user_id,PASSWORD,'product.template','read',112)
+# print server.execute(DATABASE,user_id,PASSWORD,'stock.change.product.qty','change_product_qty',id)
+# ids=server.execute(DATABASE,user_id,PASSWORD,'sale.order','search',[['partner_id','=','Agrolait']])
+# print ids
+# server.execute(DATABASE,user_id,PASSWORD,'sale.order','write',49,{'partner_id':10,})
+# print server.execute(DATABASE,user_id,PASSWORD,'sale.order','read',49,['partner_id','partner_shipping_id'])
+# server.execute(DATABASE,user_id,PASSWORD,'sale.order','onchange_partner_id',[49])
+# id=server.execute(DATABASE,user_id,PASSWORD,'student.student','search',[['name','=','amit chauhan']])
+# print id
+# print server.execute(DATABASE,user_id,PASSWORD,'student.student','read',462,['skills'])
+# print server.execute(DATABASE,user_id,PASSWORD,'student.skills','read',20,[])
+# id=server.execute(DATABASE,user_id,PASSWORD,'student.skills','create',{'name':'ruby'})
+# id=server.execute(DATABASE,user_id,PASSWORD,'student.student','write',462,{'skills':[(4,2)]})
+
+# resul=server.execute(DATABASE,user_id,PASSWORD,'book.cab','search',[])
+
+
+
